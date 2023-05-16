@@ -1,0 +1,74 @@
+{
+  "boards": [
+    {
+      "name": "Example Board",
+      "columns": [
+        {
+          "name": "Example Task 1",
+          "tasks": [
+            {
+              "title": "Create a new board",
+              "description": "Create your own board for your own projects",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Tasks can have subtasks",
+                  "isCompleted": true
+                },
+                {
+                  "title": "Another subtask",
+                  "isCompleted": false
+                },
+                {
+                  "title": "Third subtask",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "Example Task 2",
+              "description": "Create columns for your new board",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Search page",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "Build settings UI",
+              "description": "",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Account page",
+                  "isCompleted": false
+                },
+                {
+                  "title": "Billing page",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "title": "Example Task 3",
+              "description": "Once we feel version one is ready, we need to rigorously test it both internally and externally to identify any major gaps.",
+              "status": "Todo",
+              "subtasks": [
+                {
+                  "title": "Internal testing",
+                  "isCompleted": false
+                },
+                {
+                  "title": "External testing",
+                  "isCompleted": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
