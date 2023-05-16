@@ -18,15 +18,18 @@ type ButtonProps = {
   variant?: ButtonVariant;
   onClick?: () => void;
   disabled?: boolean;
+  className?: string; 
+  type?:'button' | 'submit' | 'reset';
+
 }
 
 const getSizeClasses = (size: ButtonSize | undefined) => {
   switch (size) {
     case ButtonSize.small: {
-      return 'px-4 py-2.5 ';
+      return 'px-4 py-2.5 text-sm';
     }
     case ButtonSize.large: {
-      return 'px-6 py-3';
+      return 'px-6 py-3 text-md';
     }
     default: {
       return 'px-6 py-3';
@@ -43,8 +46,8 @@ const getModeClasses = (variant?: ButtonVariant | undefined) => {
         `;
     case ButtonVariant.secondary: 
     return `
-          flex text-white dark:text-[#FFFFFF40] bg-[#635FC740] border-none w-auto
-          hover:bg-mainPurple hover:border-mainPurple dark:hover:text-white
+          flex text-mainPurple dark:text-[#FFFFFF] bg-[#635FC71A] dark:bg-white dark:text-mainPurple border-none w-auto
+          hover:bg-[#635FC740]  hover:border-mainPurple 
          
   `;
   case ButtonVariant.destructive: {
@@ -61,21 +64,22 @@ const getModeClasses = (variant?: ButtonVariant | undefined) => {
  }
 
 const BASE_BUTTON_CLASSES =
-  'flex gap-2 cursor-pointer rounded-full border-2 font-bold leading-none';
+  'flex gap-2 cursor-pointer rounded-full justify-center border-2 font-bold leading-none';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ size = ButtonSize.small, variant = ButtonVariant.primary, children, ...props }: ButtonProps) => {
+export const Button = ({ className, size = ButtonSize.small, variant = ButtonVariant.primary, children, ...props}: ButtonProps) => {
   const computedClasses = useMemo(() => {
     const modeClass = getModeClasses(variant);
     const sizeClass = getSizeClasses(size);
 
-    return [modeClass, sizeClass].join(' ');
+    return [modeClass, sizeClass, className].join(' ');
   }, [size, variant]);
 
   return (
     <button type="button" className={`${BASE_BUTTON_CLASSES} ${computedClasses}`} {...props}>
+     
       {children}
     </button>
   );
